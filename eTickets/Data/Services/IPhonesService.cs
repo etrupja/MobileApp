@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
-    public interface IMoviesService:IEntityBaseRepository<Movie>
+    public interface IPhonesService : IEntityBaseRepository<Phone>
     {
-        Task<Movie> GetMovieByIdAsync(int id);
+        Task<Phone> GetMovieByIdAsync(int id);
         Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues();
         Task AddNewMovieAsync(NewMovieVM data);
         Task UpdateMovieAsync(NewMovieVM data);

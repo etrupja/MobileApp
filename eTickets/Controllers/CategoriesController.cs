@@ -30,7 +30,7 @@ namespace eTickets.Controllers
         }
 
 
-        //Get: Cinemas/Create
+        //Get: Categories/Create
         public IActionResult Create()
         {
             return View();
@@ -44,7 +44,7 @@ namespace eTickets.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //Get: Cinemas/Details/1
+        //Get: Categories/Details/1
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
@@ -53,7 +53,7 @@ namespace eTickets.Controllers
             return View(cinemaDetails);
         }
 
-        //Get: Cinemas/Edit/1
+        //Get: Categories/Edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var cinemaDetails = await _service.GetByIdAsync(id);
@@ -69,7 +69,7 @@ namespace eTickets.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //Get: Cinemas/Delete/1
+        //Get: Categories/Delete/1
         public async Task<IActionResult> Delete(int id)
         {
             var cinemaDetails = await _service.GetByIdAsync(id);

@@ -21,9 +21,9 @@ namespace eTickets.Data
                 context.Database.EnsureCreated();
 
                 //Category
-                if (!context.Cinemas.Any())
+                if (!context.Categories.Any())
                 {
-                    context.Cinemas.AddRange(new List<Category>()
+                    context.Categories.AddRange(new List<Category>()
                     {
                         new Category()
                         {
@@ -97,12 +97,12 @@ namespace eTickets.Data
                     });
                     context.SaveChanges();
                 }
-                //Movies
-                if (!context.Movies.Any())
+                //Phones
+                if (!context.Phones.Any())
                 {
-                    context.Movies.AddRange(new List<Movie>()
+                    context.Phones.AddRange(new List<Phone>()
                     {
-                        new Movie()
+                        new Phone()
                         {
                             Name = "Life",
                             Description = "This is the Life movie description",
@@ -113,7 +113,7 @@ namespace eTickets.Data
                             CategoryId = 3,
                             ShopId = 3
                         },
-                        new Movie()
+                        new Phone()
                         {
                             Name = "The Shawshank Redemption",
                             Description = "This is the Shawshank Redemption description",
@@ -124,7 +124,7 @@ namespace eTickets.Data
                             CategoryId = 1,
                             ShopId = 1
                         },
-                        new Movie()
+                        new Phone()
                         {
                             Name = "Ghost",
                             Description = "This is the Ghost movie description",
@@ -135,7 +135,7 @@ namespace eTickets.Data
                             CategoryId = 4,
                             ShopId = 4
                         },
-                        new Movie()
+                        new Phone()
                         {
                             Name = "Race",
                             Description = "This is the Race movie description",
@@ -146,7 +146,7 @@ namespace eTickets.Data
                             CategoryId = 1,
                             ShopId = 2
                         },
-                        new Movie()
+                        new Phone()
                         {
                             Name = "Scoob",
                             Description = "This is the Scoob movie description",
@@ -157,7 +157,7 @@ namespace eTickets.Data
                             CategoryId = 1,
                             ShopId = 3
                         },
-                        new Movie()
+                        new Phone()
                         {
                             Name = "Cold Soles",
                             Description = "This is the Cold Soles movie description",

@@ -38,7 +38,7 @@ namespace eTickets
             //Services configuration
             services.AddScoped<IShopsService, ShopsService>();
             services.AddScoped<ICategoriesService, CategoriesService>();
-            services.AddScoped<IMoviesService, MoviesService>();
+            services.AddScoped<IPhonesService, PhonesService>();
             services.AddScoped<IOrdersService, OrdersService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -85,7 +85,7 @@ namespace eTickets
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Movies}/{action=Index}/{id?}");
+                    pattern: "{controller=Phones}/{action=Index}/{id?}");
             });
 
             //Seed database

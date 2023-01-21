@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 namespace eTickets.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
-    public class MoviesController : Controller
+    public class PhonesController : Controller
     {
-        private readonly IMoviesService _service;
+        private readonly IPhonesService _service;
 
-        public MoviesController(IMoviesService service)
+        public PhonesController(IPhonesService service)
         {
             _service = service;
         }
@@ -47,7 +47,7 @@ namespace eTickets.Controllers
             return View("Index", allMovies);
         }
 
-        //GET: Movies/Details/1
+        //GET: Phones/Details/1
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
@@ -55,12 +55,12 @@ namespace eTickets.Controllers
             return View(movieDetail);
         }
 
-        //GET: Movies/Create
+        //GET: Phones/Create
         public async Task<IActionResult> Create()
         {
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
 
-            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Categories = new SelectList(movieDropdownsData.Categories, "Id", "Name");
             ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
 
             return View();
@@ -73,7 +73,7 @@ namespace eTickets.Controllers
             {
                 var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
 
-                ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+                ViewBag.Categories = new SelectList(movieDropdownsData.Categories, "Id", "Name");
                 ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
 
                 return View(movie);
@@ -84,7 +84,7 @@ namespace eTickets.Controllers
         }
 
 
-        //GET: Movies/Edit/1
+        //GET: Phones/Edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var movieDetails = await _service.GetMovieByIdAsync(id);
@@ -104,7 +104,7 @@ namespace eTickets.Controllers
             };
 
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
-            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Categories = new SelectList(movieDropdownsData.Categories, "Id", "Name");
             ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
 
             return View(response);
@@ -119,7 +119,7 @@ namespace eTickets.Controllers
             {
                 var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
 
-                ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+                ViewBag.Categories = new SelectList(movieDropdownsData.Categories, "Id", "Name");
                 ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
 
                 return View(movie);

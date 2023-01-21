@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
-    public class MoviesService : EntityBaseRepository<Movie>, IMoviesService
+    public class PhonesService : EntityBaseRepository<Phone>, IPhonesService
     {
         private readonly AppDbContext _context;
-        public MoviesService(AppDbContext context) : base(context)
+        public PhonesService(AppDbContext context) : base(context)
         {
             _context = context;
         }
 
         public async Task AddNewMovieAsync(NewMovieVM data)
         {
-            var newMovie = new Movie()
+            var newMovie = new Phone()
             {
                 Name = data.Name,
                 Description = data.Description,
@@ -30,15 +30,15 @@ namespace eTickets.Data.Services
                 EndDate = data.EndDate,
                 ShopId = data.ShopId
             };
-            await _context.Movies.AddAsync(newMovie);
+            await _context.Phones.AddAsync(newMovie);
             await _context.SaveChangesAsync();
 
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Movie> GetMovieByIdAsync(int id)
+        public async Task<Phone> GetMovieByIdAsync(int id)
         {
-            var movieDetails = await _context.Movies
+            var movieDetails = await _context.Phones
                 .Include(c => c.Category)
                 .Include(p => p.Shop)
                 .FirstOrDefaultAsync(n => n.Id == id);
@@ -50,7 +50,7 @@ namespace eTickets.Data.Services
         {
             var response = new NewMovieDropdownsVM()
             {
-                Cinemas = await _context.Cinemas.OrderBy(n => n.Name).ToListAsync(),
+                Categories = await _context.Categories.OrderBy(n => n.Name).ToListAsync(),
                 Producers = await _context.Producers.OrderBy(n => n.FullName).ToListAsync()
             };
 
@@ -59,7 +59,7 @@ namespace eTickets.Data.Services
 
         public async Task UpdateMovieAsync(NewMovieVM data)
         {
-            var dbMovie = await _context.Movies.FirstOrDefaultAsync(n => n.Id == data.Id);
+            var dbMovie = await _context.Phones.FirstOrDefaultAsync(n => n.Id == data.Id);
 
             if(dbMovie != null)
             {

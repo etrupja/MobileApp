@@ -19,8 +19,8 @@ namespace eTickets.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Movie> Movies { get; set; }
-        public DbSet<Category> Cinemas { get; set; }
+        public DbSet<Phone> Phones { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Shop> Producers { get; set; }
 
 
