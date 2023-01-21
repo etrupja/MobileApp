@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 namespace eTickets.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
-    public class ProducersController : Controller
+    public class ShopsController : Controller
     {
-        private readonly IProducersService _service;
+        private readonly IShopsService _service;
 
-        public ProducersController(IProducersService service)
+        public ShopsController(IShopsService service)
         {
             _service = service;
         }
@@ -45,7 +45,7 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("ProfilePictureURL,FullName,Bio")]Producer producer)
+        public async Task<IActionResult> Create([Bind("ProfilePictureURL,FullName,Bio")]Shop producer)
         {
             if (!ModelState.IsValid) return View(producer);
 
@@ -62,7 +62,7 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePictureURL,FullName,Bio")] Producer producer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePictureURL,FullName,Bio")] Shop producer)
         {
             if (!ModelState.IsValid) return View(producer);
 

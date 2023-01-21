@@ -10,11 +10,11 @@ namespace eTickets.Data.ViewModels
     {
         public NewMovieDropdownsVM()
         {
-            Producers = new List<Producer>();
+            Producers = new List<Shop>();
             Cinemas = new List<Category>();
         }
 
-        public List<Producer> Producers { get; set; }
+        public List<Shop> Producers { get; set; }
         public List<Category> Cinemas { get; set; }
     }
 }

@@ -25,11 +25,10 @@ namespace eTickets.Data.Services
                 Description = data.Description,
                 Price = data.Price,
                 ImageURL = data.ImageURL,
-                CinemaId = data.CinemaId,
+                CategoryId = data.CategoryId,
                 StartDate = data.StartDate,
                 EndDate = data.EndDate,
-                MovieCategory = data.MovieCategory,
-                ProducerId = data.ProducerId
+                ShopId = data.ShopId
             };
             await _context.Movies.AddAsync(newMovie);
             await _context.SaveChangesAsync();
@@ -40,8 +39,8 @@ namespace eTickets.Data.Services
         public async Task<Movie> GetMovieByIdAsync(int id)
         {
             var movieDetails = await _context.Movies
-                .Include(c => c.Cinema)
-                .Include(p => p.Producer)
+                .Include(c => c.Category)
+                .Include(p => p.Shop)
                 .FirstOrDefaultAsync(n => n.Id == id);
 
             return movieDetails;
@@ -68,11 +67,10 @@ namespace eTickets.Data.Services
                 dbMovie.Description = data.Description;
                 dbMovie.Price = data.Price;
                 dbMovie.ImageURL = data.ImageURL;
-                dbMovie.CinemaId = data.CinemaId;
+                dbMovie.CategoryId = data.CategoryId;
                 dbMovie.StartDate = data.StartDate;
                 dbMovie.EndDate = data.EndDate;
-                dbMovie.MovieCategory = data.MovieCategory;
-                dbMovie.ProducerId = data.ProducerId;
+                dbMovie.ShopId = data.ShopId;
                 await _context.SaveChangesAsync();
             }
 

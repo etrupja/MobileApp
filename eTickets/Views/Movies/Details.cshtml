@@ -24,18 +24,17 @@
                     <div class="card-body">
                         <p class="card-text">@Model.Description</p>
                         <p class="card-text">
-                            <b>Cinema: </b>
-                            <a asp-controller="Categories" asp-action="Details" asp-route-id="@Model.CinemaId">
-                                @Model.Cinema.Name
+                            <b>Category: </b>
+                            <a asp-controller="Categories" asp-action="Details" asp-route-id="@Model.CategoryId">
+                                @Model.Category.Name
                             </a>
                         </p>
                         <p class="card-text">
-                            <b>Producer: </b>
-                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerId">
-                                @Model.Producer.FullName
+                            <b>Shop: </b>
+                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ShopId">
+                                @Model.Shop.FullName
                             </a>
                         </p>
-                        <p class="card-text"><b>Category: </b>@Model.MovieCategory</p>
                         <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>
                         <p class="card-text"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yy")</p>
                         <p class="card-text ">

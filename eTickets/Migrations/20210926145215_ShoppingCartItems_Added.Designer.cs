@@ -61,7 +61,7 @@ namespace eTickets.Migrations
                     b.ToTable("Actors_Movies");
                 });
 
-            modelBuilder.Entity("eTickets.Models.Cinema", b =>
+            modelBuilder.Entity("eTickets.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -92,7 +92,7 @@ namespace eTickets.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CinemaId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -121,7 +121,7 @@ namespace eTickets.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CinemaId");
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("ProducerId");
 
@@ -243,9 +243,9 @@ namespace eTickets.Migrations
 
             modelBuilder.Entity("eTickets.Models.Movie", b =>
                 {
-                    b.HasOne("eTickets.Models.Cinema", "Cinema")
+                    b.HasOne("eTickets.Models.Category", "Category")
                         .WithMany("Movies")
-                        .HasForeignKey("CinemaId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -255,7 +255,7 @@ namespace eTickets.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Cinema");
+                    b.Navigation("Category");
 
                     b.Navigation("Producer");
                 });
@@ -293,7 +293,7 @@ namespace eTickets.Migrations
                     b.Navigation("Actors_Movies");
                 });
 
-            modelBuilder.Entity("eTickets.Models.Cinema", b =>
+            modelBuilder.Entity("eTickets.Models.Category", b =>
                 {
                     b.Navigation("Movies");
                 });

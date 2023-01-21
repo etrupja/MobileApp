@@ -65,7 +65,7 @@ namespace eTickets.Migrations
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MovieCategory = table.Column<int>(type: "int", nullable: false),
-                    CinemaId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
                     ProducerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -73,7 +73,7 @@ namespace eTickets.Migrations
                     table.PrimaryKey("PK_Movies", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Movies_Cinemas_CinemaId",
-                        column: x => x.CinemaId,
+                        column: x => x.CategoryId,
                         principalTable: "Cinemas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -117,7 +117,7 @@ namespace eTickets.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Movies_CinemaId",
                 table: "Movies",
-                column: "CinemaId");
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Movies_ProducerId",

@@ -26,14 +26,14 @@ namespace eTickets.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var allMovies = await _service.GetAllAsync(n => n.Cinema);
+            var allMovies = await _service.GetAllAsync(n => n.Category);
             return View(allMovies);
         }
 
         [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
-            var allMovies = await _service.GetAllAsync(n => n.Cinema);
+            var allMovies = await _service.GetAllAsync(n => n.Category);
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -99,9 +99,8 @@ namespace eTickets.Controllers
                 StartDate = movieDetails.StartDate,
                 EndDate = movieDetails.EndDate,
                 ImageURL = movieDetails.ImageURL,
-                MovieCategory = movieDetails.MovieCategory,
-                CinemaId = movieDetails.CinemaId,
-                ProducerId = movieDetails.ProducerId,
+                CategoryId = movieDetails.CategoryId,
+                ShopId = movieDetails.ShopId,
             };
 
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();

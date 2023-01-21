@@ -20,38 +20,38 @@ namespace eTickets.Data
 
                 context.Database.EnsureCreated();
 
-                //Cinema
+                //Category
                 if (!context.Cinemas.Any())
                 {
                     context.Cinemas.AddRange(new List<Category>()
                     {
                         new Category()
                         {
-                            Name = "Cinema 1",
+                            Name = "Category 1",
                             Logo = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
                             Description = "This is the description of the first cinema"
                         },
                         new Category()
                         {
-                            Name = "Cinema 2",
+                            Name = "Category 2",
                             Logo = "http://dotnethow.net/images/cinemas/cinema-2.jpeg",
                             Description = "This is the description of the first cinema"
                         },
                         new Category()
                         {
-                            Name = "Cinema 3",
+                            Name = "Category 3",
                             Logo = "http://dotnethow.net/images/cinemas/cinema-3.jpeg",
                             Description = "This is the description of the first cinema"
                         },
                         new Category()
                         {
-                            Name = "Cinema 4",
+                            Name = "Category 4",
                             Logo = "http://dotnethow.net/images/cinemas/cinema-4.jpeg",
                             Description = "This is the description of the first cinema"
                         },
                         new Category()
                         {
-                            Name = "Cinema 5",
+                            Name = "Category 5",
                             Logo = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
                             Description = "This is the description of the first cinema"
                         },
@@ -61,34 +61,34 @@ namespace eTickets.Data
                 //Producers
                 if (!context.Producers.Any())
                 {
-                    context.Producers.AddRange(new List<Producer>()
+                    context.Producers.AddRange(new List<Shop>()
                     {
-                        new Producer()
+                        new Shop()
                         {
                             FullName = "Producer 1",
                             Bio = "This is the Bio of the first actor",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-1.jpeg"
 
                         },
-                        new Producer()
+                        new Shop()
                         {
                             FullName = "Producer 2",
                             Bio = "This is the Bio of the second actor",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-2.jpeg"
                         },
-                        new Producer()
+                        new Shop()
                         {
                             FullName = "Producer 3",
                             Bio = "This is the Bio of the second actor",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-3.jpeg"
                         },
-                        new Producer()
+                        new Shop()
                         {
                             FullName = "Producer 4",
                             Bio = "This is the Bio of the second actor",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-4.jpeg"
                         },
-                        new Producer()
+                        new Shop()
                         {
                             FullName = "Producer 5",
                             Bio = "This is the Bio of the second actor",
@@ -110,9 +110,8 @@ namespace eTickets.Data
                             ImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(10),
-                            CinemaId = 3,
-                            ProducerId = 3,
-                            MovieCategory = MovieCategory.Documentary
+                            CategoryId = 3,
+                            ShopId = 3
                         },
                         new Movie()
                         {
@@ -122,9 +121,8 @@ namespace eTickets.Data
                             ImageURL = "http://dotnethow.net/images/movies/movie-1.jpeg",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(3),
-                            CinemaId = 1,
-                            ProducerId = 1,
-                            MovieCategory = MovieCategory.Action
+                            CategoryId = 1,
+                            ShopId = 1
                         },
                         new Movie()
                         {
@@ -134,9 +132,8 @@ namespace eTickets.Data
                             ImageURL = "http://dotnethow.net/images/movies/movie-4.jpeg",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(7),
-                            CinemaId = 4,
-                            ProducerId = 4,
-                            MovieCategory = MovieCategory.Horror
+                            CategoryId = 4,
+                            ShopId = 4
                         },
                         new Movie()
                         {
@@ -146,9 +143,8 @@ namespace eTickets.Data
                             ImageURL = "http://dotnethow.net/images/movies/movie-6.jpeg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-5),
-                            CinemaId = 1,
-                            ProducerId = 2,
-                            MovieCategory = MovieCategory.Documentary
+                            CategoryId = 1,
+                            ShopId = 2
                         },
                         new Movie()
                         {
@@ -158,9 +154,8 @@ namespace eTickets.Data
                             ImageURL = "http://dotnethow.net/images/movies/movie-7.jpeg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-2),
-                            CinemaId = 1,
-                            ProducerId = 3,
-                            MovieCategory = MovieCategory.Cartoon
+                            CategoryId = 1,
+                            ShopId = 3
                         },
                         new Movie()
                         {
@@ -170,9 +165,8 @@ namespace eTickets.Data
                             ImageURL = "http://dotnethow.net/images/movies/movie-8.jpeg",
                             StartDate = DateTime.Now.AddDays(3),
                             EndDate = DateTime.Now.AddDays(20),
-                            CinemaId = 1,
-                            ProducerId = 5,
-                            MovieCategory = MovieCategory.Drama
+                            CategoryId = 1,
+                            ShopId = 5
                         }
                     });
                     context.SaveChanges();

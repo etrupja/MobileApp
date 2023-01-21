@@ -21,7 +21,7 @@ namespace eTickets.Data
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Category> Cinemas { get; set; }
-        public DbSet<Producer> Producers { get; set; }
+        public DbSet<Shop> Producers { get; set; }
 
 
         //Orders related tables
