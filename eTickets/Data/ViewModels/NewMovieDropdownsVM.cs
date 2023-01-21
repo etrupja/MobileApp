@@ -12,11 +12,9 @@ namespace eTickets.Data.ViewModels
         {
             Producers = new List<Producer>();
             Cinemas = new List<Category>();
-            Actors = new List<Actor>();
         }
 
         public List<Producer> Producers { get; set; }
         public List<Category> Cinemas { get; set; }
-        public List<Actor> Actors { get; set; }
     }
 }

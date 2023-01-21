@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
-    public interface ICinemasService:IEntityBaseRepository<Category>
+    public class CategoriesService:EntityBaseRepository<Category>, ICategoriesService
     {
+        public CategoriesService(AppDbContext context) : base(context)
+        {
+        }
     }
 }

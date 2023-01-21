@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 namespace eTickets.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
-    public class CinemasController : Controller
+    public class CategoriesController : Controller
     {
-        private readonly ICinemasService _service;
+        private readonly ICategoriesService _service;
 
-        public CinemasController(ICinemasService service)
+        public CategoriesController(ICategoriesService service)
         {
             _service = service;
         }
