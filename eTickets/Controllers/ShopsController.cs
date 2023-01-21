@@ -45,7 +45,7 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("ProfilePictureURL,FullName,Bio")]Shop producer)
+        public async Task<IActionResult> Create([Bind("ProfilePictureURL,Name,Description")]Shop producer)
         {
             if (!ModelState.IsValid) return View(producer);
 
@@ -62,7 +62,7 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePictureURL,FullName,Bio")] Shop producer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePictureURL,Name,Description")] Shop producer)
         {
             if (!ModelState.IsValid) return View(producer);
 

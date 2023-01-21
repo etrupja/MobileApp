@@ -17,7 +17,7 @@ namespace eTickets.Data.Services
             _context = context;
         }
 
-        public async Task AddNewMovieAsync(NewMovieVM data)
+        public async Task AddNewMovieAsync(NewPhoneVM data)
         {
             var newMovie = new Phone()
             {
@@ -26,8 +26,6 @@ namespace eTickets.Data.Services
                 Price = data.Price,
                 ImageURL = data.ImageURL,
                 CategoryId = data.CategoryId,
-                StartDate = data.StartDate,
-                EndDate = data.EndDate,
                 ShopId = data.ShopId
             };
             await _context.Phones.AddAsync(newMovie);
@@ -46,18 +44,18 @@ namespace eTickets.Data.Services
             return movieDetails;
         }
 
-        public async Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues()
+        public async Task<NewPhoneDropdownsVM> GetNewMovieDropdownsValues()
         {
-            var response = new NewMovieDropdownsVM()
+            var response = new NewPhoneDropdownsVM()
             {
                 Categories = await _context.Categories.OrderBy(n => n.Name).ToListAsync(),
-                Producers = await _context.Producers.OrderBy(n => n.FullName).ToListAsync()
+                Shops = await _context.Shops.OrderBy(n => n.Name).ToListAsync()
             };
 
             return response;
         }
 
-        public async Task UpdateMovieAsync(NewMovieVM data)
+        public async Task UpdateMovieAsync(NewPhoneVM data)
         {
             var dbMovie = await _context.Phones.FirstOrDefaultAsync(n => n.Id == data.Id);
 
@@ -68,8 +66,6 @@ namespace eTickets.Data.Services
                 dbMovie.Price = data.Price;
                 dbMovie.ImageURL = data.ImageURL;
                 dbMovie.CategoryId = data.CategoryId;
-                dbMovie.StartDate = data.StartDate;
-                dbMovie.EndDate = data.EndDate;
                 dbMovie.ShopId = data.ShopId;
                 await _context.SaveChangesAsync();
             }

@@ -18,16 +18,13 @@ namespace eTickets.Models
         public string Description { get; set; }
         public double Price { get; set; }
         public string ImageURL { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
 
-     
         //Category
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
-        //Producer
+        //Shop
         public int ShopId { get; set; }
         [ForeignKey("ShopId")]
         public Shop Shop { get; set; }

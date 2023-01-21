@@ -26,14 +26,14 @@ namespace eTickets.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var allMovies = await _service.GetAllAsync(n => n.Category);
+            var allMovies = await _service.GetAllAsync(n => n.Category, n => n.Shop);
             return View(allMovies);
         }
 
         [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
-            var allMovies = await _service.GetAllAsync(n => n.Category);
+            var allMovies = await _service.GetAllAsync(n => n.Category, n => n.Shop);
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -61,20 +61,20 @@ namespace eTickets.Controllers
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
 
             ViewBag.Categories = new SelectList(movieDropdownsData.Categories, "Id", "Name");
-            ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+            ViewBag.Shops = new SelectList(movieDropdownsData.Shops, "Id", "Name");
 
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(NewMovieVM movie)
+        public async Task<IActionResult> Create(NewPhoneVM movie)
         {
             if (!ModelState.IsValid)
             {
                 var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
 
                 ViewBag.Categories = new SelectList(movieDropdownsData.Categories, "Id", "Name");
-                ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+                ViewBag.Shops = new SelectList(movieDropdownsData.Shops, "Id", "Name");
 
                 return View(movie);
             }
@@ -90,14 +90,12 @@ namespace eTickets.Controllers
             var movieDetails = await _service.GetMovieByIdAsync(id);
             if (movieDetails == null) return View("NotFound");
 
-            var response = new NewMovieVM()
+            var response = new NewPhoneVM()
             {
                 Id = movieDetails.Id,
                 Name = movieDetails.Name,
                 Description = movieDetails.Description,
                 Price = movieDetails.Price,
-                StartDate = movieDetails.StartDate,
-                EndDate = movieDetails.EndDate,
                 ImageURL = movieDetails.ImageURL,
                 CategoryId = movieDetails.CategoryId,
                 ShopId = movieDetails.ShopId,
@@ -105,13 +103,13 @@ namespace eTickets.Controllers
 
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
             ViewBag.Categories = new SelectList(movieDropdownsData.Categories, "Id", "Name");
-            ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+            ViewBag.Shops = new SelectList(movieDropdownsData.Shops, "Id", "Name");
 
             return View(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, NewMovieVM movie)
+        public async Task<IActionResult> Edit(int id, NewPhoneVM movie)
         {
             if (id != movie.Id) return View("NotFound");
 
@@ -120,7 +118,7 @@ namespace eTickets.Controllers
                 var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
 
                 ViewBag.Categories = new SelectList(movieDropdownsData.Categories, "Id", "Name");
-                ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+                ViewBag.Shops = new SelectList(movieDropdownsData.Shops, "Id", "Name");
 
                 return View(movie);
             }

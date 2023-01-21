@@ -21,7 +21,7 @@ namespace eTickets.Data
 
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Shop> Producers { get; set; }
+        public DbSet<Shop> Shops { get; set; }
 
 
         //Orders related tables

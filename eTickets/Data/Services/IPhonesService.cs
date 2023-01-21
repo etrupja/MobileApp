@@ -11,8 +11,8 @@ namespace eTickets.Data.Services
     public interface IPhonesService : IEntityBaseRepository<Phone>
     {
         Task<Phone> GetMovieByIdAsync(int id);
-        Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues();
-        Task AddNewMovieAsync(NewMovieVM data);
-        Task UpdateMovieAsync(NewMovieVM data);
+        Task<NewPhoneDropdownsVM> GetNewMovieDropdownsValues();
+        Task AddNewMovieAsync(NewPhoneVM data);
+        Task UpdateMovieAsync(NewPhoneVM data);
     }
 }

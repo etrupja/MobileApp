@@ -31,26 +31,9 @@
                         </p>
                         <p class="card-text">
                             <b>Shop: </b>
-                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ShopId">
-                                @Model.Shop.FullName
+                            <a asp-controller="Shops" asp-action="Details" asp-route-id="@Model.ShopId">
+                                @Model.Shop.Name
                             </a>
-                        </p>
-                        <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>
-                        <p class="card-text"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yy")</p>
-                        <p class="card-text ">
-                            <b>Status: </b>
-                            @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
-                            {
-                                <span class="badge bg-success text-white">AVAILABLE</span>
-                            }
-                            else if (DateTime.Now > Model.EndDate)
-                            {
-                                <span class="badge bg-danger text-white">EXPIRED</span>
-                            }
-                            else
-                            {
-                                <span class="badge bg-primary text-white">UPCOMING</span>
-                            }
                         </p>
                     </div>
                 </div>
@@ -60,9 +43,11 @@
                             <a class="btn btn-outline-primary float-right" asp-action="Index">
                                 Back to List
                             </a>
-                            <a class="btn btn-success text-white  @((DateTime.Now > Model.EndDate) ? "disabled" : "")" 
+                            <a class="btn btn-success text-white" 
                                asp-controller="Orders" 
-                               asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))</a>
+                               asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id">
+                               <i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))
+                           </a>
                         </p>
                     </div>
                 </div>

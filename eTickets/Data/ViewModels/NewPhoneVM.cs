@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace eTickets.Models
 {
-    public class NewMovieVM
+    public class NewPhoneVM
     {
         public int Id { get; set; }
 
-        [Display(Name = "Movie name")]
+        [Display(Name = "Phone name")]
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
-        [Display(Name = "Movie description")]
+        [Display(Name = "Phone description")]
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
 
@@ -25,20 +25,12 @@ namespace eTickets.Models
         [Required(ErrorMessage = "Price is required")]
         public double Price { get; set; }
 
-        [Display(Name = "Movie poster URL")]
-        [Required(ErrorMessage = "Movie poster URL is required")]
+        [Display(Name = "Phone poster URL")]
+        [Required(ErrorMessage = "Phone poster URL is required")]
         public string ImageURL { get; set; }
 
-        [Display(Name = "Movie start date")]
-        [Required(ErrorMessage = "Start date is required")]
-        public DateTime StartDate { get; set; }
-
-        [Display(Name = "Movie end date")]
-        [Required(ErrorMessage = "End date is required")]
-        public DateTime EndDate { get; set; }
-
-        [Display(Name = "Select a cinema")]
-        [Required(ErrorMessage = "Movie cinema is required")]
+        [Display(Name = "Select a category")]
+        [Required(ErrorMessage = "Category is required")]
         public int CategoryId { get; set; }
 
         [Display(Name = "Select a shop")]
