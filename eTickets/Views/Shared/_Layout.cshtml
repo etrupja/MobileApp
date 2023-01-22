@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Phones" asp-action="Index">eShop</a>
+                <a class="navbar-brand" asp-controller="Items" asp-action="Index">eShop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Phones" asp-action="Index"><i class="bi bi-phone"></i> Phones</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Items" asp-action="Index"><i class="bi bi-phone"></i> Phones & Accessories </a>
                         </li>
 
                         @*@if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
@@ -39,7 +39,7 @@
                         
                     </ul>
 
-                    <form class="form-inline my-2 my-lg-0" asp-controller="Phones" asp-action="Filter" style="padding-right: 25px;">
+                    <form class="form-inline my-2 my-lg-0" asp-controller="Items" asp-action="Filter" style="padding-right: 25px;">
                         <input name="searchString" type="text" class="form-control" placeholder="Search for a phone..." aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                     </form>

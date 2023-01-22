@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.ViewModels
 {
-    public class NewPhoneDropdownsVM
+    public class NewItemDropdownsVM
     {
-        public NewPhoneDropdownsVM()
+        public NewItemDropdownsVM()
         {
             Shops = new List<Shop>();
             Categories = new List<Category>();

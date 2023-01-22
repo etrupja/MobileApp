@@ -91,12 +91,12 @@ namespace eTickets.Data
                     });
                     context.SaveChanges();
                 }
-                //Phones
-                if (!context.Phones.Any())
+                //Items
+                if (!context.Items.Any())
                 {
-                    context.Phones.AddRange(new List<Phone>()
+                    context.Items.AddRange(new List<Item>()
                     {
-                        new Phone()
+                        new Item()
                         {
                             Name = "iPhone 14",
                             Description = "This is iPhone 14",
@@ -105,7 +105,7 @@ namespace eTickets.Data
                             CategoryId = 1,
                             ShopId = 3
                         },
-                        new Phone()
+                        new Item()
                         {
                             Name = "iPhone Case",
                             Description = "This is an iPhone case",
@@ -114,7 +114,7 @@ namespace eTickets.Data
                             CategoryId = 1,
                             ShopId = 1
                         },
-                        new Phone()
+                        new Item()
                         {
                             Name = "High Speed Charger",
                             Description = "This is a high speed charger",
@@ -123,7 +123,7 @@ namespace eTickets.Data
                             CategoryId = 4,
                             ShopId = 4
                         },
-                        new Phone()
+                        new Item()
                         {
                             Name = "Samsung Phone",
                             Description = "This is a Samsung phone",
@@ -132,7 +132,7 @@ namespace eTickets.Data
                             CategoryId = 1,
                             ShopId = 2
                         },
-                        new Phone()
+                        new Item()
                         {
                             Name = "Samsung Tablet",
                             Description = "This is a Samsung tablet",
@@ -166,7 +166,7 @@ namespace eTickets.Data
                 string adminUserEmail = "admin@mobile.com";
 
                 var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
-                if(adminUser == null)
+                if (adminUser == null)
                 {
                     var newAdminUser = new ApplicationUser()
                     {
@@ -181,7 +181,6 @@ namespace eTickets.Data
 
 
                 string appUserEmail = "klerisa@trupja.com";
-
                 var appUser = await userManager.FindByEmailAsync(appUserEmail);
                 if (appUser == null)
                 {
@@ -190,6 +189,51 @@ namespace eTickets.Data
                         FullName = "Klerisa Trupja",
                         UserName = "Klerisa-Trupja",
                         Email = appUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "Coding@1234?");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                }
+
+                string sonilaUserEmail = "sonila@tafhasi.com";
+                var sonilaUser = await userManager.FindByEmailAsync(sonilaUserEmail);
+                if (sonilaUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "Sonila Tafhasi",
+                        UserName = "Sonila-Tafhasi",
+                        Email = sonilaUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "Coding@1234?");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                }
+
+                string geraldaUserEmail = "geralda@shehu.com";
+                var geraldaUser = await userManager.FindByEmailAsync(geraldaUserEmail);
+                if (geraldaUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "Geralda Shehu",
+                        UserName = "Geralda-Shehu",
+                        Email = geraldaUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "Coding@1234?");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                }
+
+                string sabianUserEmail = "sabian@lala.com";
+                var sabianUser = await userManager.FindByEmailAsync(sabianUserEmail);
+                if (sabianUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "Sabian Lala",
+                        UserName = "Sabian Lala",
+                        Email = sabianUserEmail,
                         EmailConfirmed = true
                     };
                     await userManager.CreateAsync(newAppUser, "Coding@1234?");

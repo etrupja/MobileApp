@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 namespace eTickets.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
-    public class PhonesController : Controller
+    public class ItemsController : Controller
     {
-        private readonly IPhonesService _service;
+        private readonly IItemsService _service;
 
-        public PhonesController(IPhonesService service)
+        public ItemsController(IItemsService service)
         {
             _service = service;
         }
@@ -47,7 +47,7 @@ namespace eTickets.Controllers
             return View("Index", allMovies);
         }
 
-        //GET: Phones/Details/1
+        //GET: Items/Details/1
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
@@ -55,7 +55,7 @@ namespace eTickets.Controllers
             return View(movieDetail);
         }
 
-        //GET: Phones/Create
+        //GET: Items/Create
         public async Task<IActionResult> Create()
         {
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
@@ -67,7 +67,7 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(NewPhoneVM movie)
+        public async Task<IActionResult> Create(NewItemVM movie)
         {
             if (!ModelState.IsValid)
             {
@@ -84,13 +84,13 @@ namespace eTickets.Controllers
         }
 
 
-        //GET: Phones/Edit/1
+        //GET: Items/Edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var movieDetails = await _service.GetMovieByIdAsync(id);
             if (movieDetails == null) return View("NotFound");
 
-            var response = new NewPhoneVM()
+            var response = new NewItemVM()
             {
                 Id = movieDetails.Id,
                 Name = movieDetails.Name,
@@ -109,7 +109,7 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, NewPhoneVM movie)
+        public async Task<IActionResult> Edit(int id, NewItemVM movie)
         {
             if (id != movie.Id) return View("NotFound");
 

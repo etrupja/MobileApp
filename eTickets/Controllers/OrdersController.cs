@@ -15,11 +15,11 @@ namespace eTickets.Controllers
     [Authorize] 
     public class OrdersController : Controller
     {
-        private readonly IPhonesService _moviesService;
+        private readonly IItemsService _moviesService;
         private readonly ShoppingCart _shoppingCart;
         private readonly IOrdersService _ordersService;
 
-        public OrdersController(IPhonesService moviesService, ShoppingCart shoppingCart, IOrdersService ordersService)
+        public OrdersController(IItemsService moviesService, ShoppingCart shoppingCart, IOrdersService ordersService)
         {
             _moviesService = moviesService;
             _shoppingCart = shoppingCart;

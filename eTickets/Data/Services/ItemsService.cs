@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
-    public class PhonesService : EntityBaseRepository<Phone>, IPhonesService
+    public class ItemsService : EntityBaseRepository<Item>, IItemsService
     {
         private readonly AppDbContext _context;
-        public PhonesService(AppDbContext context) : base(context)
+        public ItemsService(AppDbContext context) : base(context)
         {
             _context = context;
         }
 
-        public async Task AddNewMovieAsync(NewPhoneVM data)
+        public async Task AddNewMovieAsync(NewItemVM data)
         {
-            var newMovie = new Phone()
+            var newMovie = new Item()
             {
                 Name = data.Name,
                 Description = data.Description,
@@ -28,15 +28,15 @@ namespace eTickets.Data.Services
                 CategoryId = data.CategoryId,
                 ShopId = data.ShopId
             };
-            await _context.Phones.AddAsync(newMovie);
+            await _context.Items.AddAsync(newMovie);
             await _context.SaveChangesAsync();
 
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Phone> GetMovieByIdAsync(int id)
+        public async Task<Item> GetMovieByIdAsync(int id)
         {
-            var movieDetails = await _context.Phones
+            var movieDetails = await _context.Items
                 .Include(c => c.Category)
                 .Include(p => p.Shop)
                 .FirstOrDefaultAsync(n => n.Id == id);
@@ -44,9 +44,9 @@ namespace eTickets.Data.Services
             return movieDetails;
         }
 
-        public async Task<NewPhoneDropdownsVM> GetNewMovieDropdownsValues()
+        public async Task<NewItemDropdownsVM> GetNewMovieDropdownsValues()
         {
-            var response = new NewPhoneDropdownsVM()
+            var response = new NewItemDropdownsVM()
             {
                 Categories = await _context.Categories.OrderBy(n => n.Name).ToListAsync(),
                 Shops = await _context.Shops.OrderBy(n => n.Name).ToListAsync()
@@ -55,9 +55,9 @@ namespace eTickets.Data.Services
             return response;
         }
 
-        public async Task UpdateMovieAsync(NewPhoneVM data)
+        public async Task UpdateMovieAsync(NewItemVM data)
         {
-            var dbMovie = await _context.Phones.FirstOrDefaultAsync(n => n.Id == data.Id);
+            var dbMovie = await _context.Items.FirstOrDefaultAsync(n => n.Id == data.Id);
 
             if(dbMovie != null)
             {

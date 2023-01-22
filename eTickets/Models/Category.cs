@@ -25,6 +25,6 @@ namespace eTickets.Models
         public string Description { get; set; }
 
         //Relationships
-        public List<Phone> Phones { get; set; }
+        public List<Item> Items { get; set; }
     }
 }

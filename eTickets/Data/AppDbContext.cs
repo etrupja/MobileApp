@@ -19,7 +19,7 @@ namespace eTickets.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Phone> Phones { get; set; }
+        public DbSet<Item> Items { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Shop> Shops { get; set; }
 

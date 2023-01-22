@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Phone>
+﻿@model IEnumerable<Item>
 
 @{
-    ViewData["Title"] = "List of Phones";
+    ViewData["Title"] = "List of Items";
 }
 
 <div class="row">
@@ -53,4 +53,4 @@
     }
 </div>
 
-@await Html.PartialAsync("_CreateItem", "Phones") 
+@await Html.PartialAsync("_CreateItem", "Items") 
