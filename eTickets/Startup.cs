@@ -33,7 +33,8 @@ namespace eTickets
         {
 
             //DbContext configuration
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("MobileAppDb-Temp"));
 
             //Services configuration
             services.AddScoped<IShopsService, ShopsService>();
